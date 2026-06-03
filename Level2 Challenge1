@@ -1,0 +1,99 @@
+//Copy and paste ALL your code for Level 2 Challenge 1
+/*
+ *  Name:
+ *  Teacher:
+ *  Period:
+ * 
+*/
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class Level2Challenge1 extends Drawing {
+
+    public static void main(String[] args) {
+        Runner.project = new Level2Challenge1();
+        Runner.project.drawGrid = drawGrid;
+        Runner.project.directions = directions;
+        Runner.main();
+    }
+    //Change this to false to turn off the grid
+    static boolean drawGrid = false;
+    //Change the strings in the the array to display your directions for your project
+    //directions can be any length up to about 10.
+    static String[] directions = {"a","b","c","d","e"};
+    
+    //************************************Global Variables go here
+    Color house = new Color(124,100,96);
+    Color roofColor = new Color(144,134,137);
+    
+    
+    int xPosWhite = 100;
+    int yPosWhite = 550;
+    int xPosRed1 = 100;
+    int xPosRed2 = 100;
+    int yPosRed1 = 555;
+    int yPosRed2 = 565;
+    int xPosBlue1 = 100;
+    int xPosBlue2 = 100;
+    int yPosBlue1 = 575;
+    int yPosBlue2 = 585;
+    int xPosBrown = 107;
+    int yPosBrown = 590;
+    @Override
+    public void drawPerFrame(Graphics2D g2d)  
+    { 
+        //***********************************Your drawing code goes here
+        g2d.setColor(house);
+        g2d.fillRect(200,300,400,300);
+        
+        g2d.setColor(roofColor);
+        Polygon roof = new Polygon();
+        roof.addPoint(160,300);
+        roof.addPoint(400,140);
+        roof.addPoint(640,300);
+        g2d.fillPolygon(roof);
+        
+        g2d.fillRect(360,480,80,120);
+        g2d.setColor(Color.white);
+        g2d.fillRect(240,360,80,80);
+        g2d.fillRect(480,360,80,80);
+        
+        g2d.setColor(Color.yellow);
+        g2d.fillOval(100,100,100,100);
+        //firework
+        g2d.setColor(Color.white);
+        
+        if(Mouse.button && Mouse.x>xPosWhite-10 && Mouse.x<xPosWhite+30 && Mouse.y>yPosWhite-20 && Mouse.y<yPosWhite+40)
+        {
+            xPosWhite = Mouse.x;
+            yPosWhite = Mouse.y;
+            xPosRed1 = Mouse.x;
+            yPosRed1 = Mouse.y+5;
+            xPosRed2 = Mouse.x;
+            yPosRed2 = Mouse.y+15;
+            xPosBlue1 = Mouse.x;
+            yPosBlue1 = Mouse.y+25;
+            xPosBlue2 = Mouse.x;
+            yPosBlue2 = Mouse.y+35;
+            yPosBrown = Mouse.y+40;
+            xPosBrown = Mouse.x+7;
+        }
+        g2d.fillRect(xPosWhite,yPosWhite,20,40);
+        g2d.setColor(Color.red);
+        g2d.fillRect(xPosRed1,yPosRed1,20,5);
+        g2d.fillRect(xPosRed2,yPosRed2,20,5);
+        g2d.setColor(Color.blue);
+        g2d.fillRect(xPosBlue1,yPosBlue1,20,5);
+        g2d.fillRect(xPosBlue2,yPosBlue2,20,5);
+        g2d.setColor(house);
+        g2d.fillRect(xPosBrown, yPosBrown,5,5);
+    }
+    //Methods go HERE
+    //*************************************************************************updateEnemy
+    
+    
+    
+    
+}
