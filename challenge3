@@ -1,0 +1,105 @@
+//Copy and paste ALL your code for Level 1 Challenge 3
+/*
+ *  Name:
+ *  Teacher:
+ *  Period:
+ * 
+*/
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class Challenge_four extends Drawing {
+
+    public static void main(String[] args) {
+        Runner.project = new Challenge_four();
+        Runner.project.drawGrid = drawGrid;
+        Runner.project.directions = directions;
+        Runner.main();
+    }
+    //Change this to false to turn off the grid
+    static boolean drawGrid = false;
+    //Change the strings in the the array to display your directions for your project
+    //directions can be any length up to about 10.
+    static String[] directions = {"a","b","c","d","e"};
+    
+    //************************************Global Variables go here
+    Color house = new Color(124,100,96);
+    Color roofColor = new Color(144,134,137);
+    Color darkBlue = new Color(0,0,100);
+    Color darkRed = new Color(100,0,0);
+    Color darkGreen = new Color(0,100,0);
+    @Override
+    public void drawPerFrame(Graphics2D g2d)  
+    { 
+        //***********************************Your drawing code goes here
+        g2d.setColor(house);
+        g2d.fillRect(200,300,400,300);
+        
+        g2d.setColor(roofColor);
+        Polygon roof = new Polygon();
+        roof.addPoint(160,300);
+        roof.addPoint(400,140);
+        roof.addPoint(640,300);
+        g2d.fillPolygon(roof);
+        
+        g2d.fillRect(360,480,80,120);
+        g2d.setColor(Color.white);
+        g2d.fillRect(240,360,80,80);
+        g2d.fillRect(480,360,80,80);
+        g2d.setColor(darkBlue);
+        
+        g2d.setColor(Color.yellow);
+        g2d.fillOval(100,100,100,100);
+        
+        g2d.setColor(darkBlue);
+        if(Mouse.button)
+        {
+            g2d.setColor(Color.blue);
+        }
+        g2d.fillOval(160,300,6,7);
+        g2d.fillOval(220,300,6,7);
+        g2d.fillOval(280,300,6,7);
+        g2d.fillOval(340,300,6,7);
+        g2d.fillOval(400,300,6,7);
+        g2d.fillOval(460,300,6,7);
+        g2d.fillOval(520,300,6,7);
+        g2d.fillOval(580,300,6,7);
+        g2d.fillOval(640,300,6,7);
+        
+        g2d.setColor(darkRed);
+        if(Mouse.button)
+        {
+            g2d.setColor(Color.red);
+        }
+        g2d.fillOval(180,300,6,7);
+        g2d.fillOval(240,300,6,7);
+        g2d.fillOval(300,300,6,7);
+        g2d.fillOval(360,300,6,7);
+        g2d.fillOval(420,300,6,7);
+        g2d.fillOval(480,300,6,7);
+        g2d.fillOval(540,300,6,7);
+        g2d.fillOval(600,300,6,7);
+        
+        g2d.setColor(darkGreen);
+        if(Mouse.button)
+        {
+            g2d.setColor(Color.green);
+        }
+        g2d.fillOval(200,300,6,7);
+        g2d.fillOval(260,300,6,7);
+        g2d.fillOval(320,300,6,7);
+        g2d.fillOval(380,300,6,7);
+        g2d.fillOval(440,300,6,7);
+        g2d.fillOval(500,300,6,7);
+        g2d.fillOval(560,300,6,7);
+        g2d.fillOval(620,300,6,7);
+    }
+    //Methods go HERE
+    //*************************************************************************updateEnemy
+    
+    
+    
+    
+}
