@@ -1,0 +1,103 @@
+/*
+ *  Name:
+ *  Teacher:
+ *  Period:
+ * 
+*/
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class level2Challenge3 extends Drawing {
+
+    public static void main(String[] args) {
+        Runner.project = new level2Challenge3();
+        Runner.project.drawGrid = drawGrid;
+        Runner.project.directions = directions;
+        Runner.main();
+    }
+    //Change this to false to turn off the grid
+    static boolean drawGrid = false;
+    //Change the strings in the the array to display your directions for your project
+    //directions can be any length up to about 10.
+    static String[] directions = {"a","b","c","d","e"};
+    
+    //************************************Global Variables go here
+    Color house = new Color(124,100,96);
+    Color roofColor = new Color(144,134,137);
+    
+    
+    int cooler = 0;
+    int mouse = 0;
+    int colorincrement = 2;
+    @Override
+    public void drawPerFrame(Graphics2D g2d)  
+    { 
+        //***********************************Your drawing code goes here
+        g2d.setColor(house);
+        g2d.fillRect(200,300,400,300);
+        g2d.setColor(roofColor);
+        Polygon roof = new Polygon();
+        roof.addPoint(160,300);
+        roof.addPoint(400,140);
+        roof.addPoint(640,300);
+        g2d.fillPolygon(roof);
+        
+        g2d.fillRect(360,480,80,120);
+        g2d.setColor(Color.white);
+        g2d.fillRect(240,360,80,80);
+        g2d.fillRect(480,360,80,80);
+        
+        g2d.setColor(Color.yellow);
+        g2d.fillOval(100,100,100,100);
+        
+        if(Mouse.x>-10 && Mouse.x<800)
+        {
+            if ( mouse < Mouse.x)
+            {
+                if ((cooler + colorincrement) < 255)
+                { cooler = cooler + colorincrement ;}
+           
+            }
+            else if(mouse > Mouse.x)
+            {
+             if ((cooler - colorincrement) > 0)
+                { cooler = cooler - colorincrement;}
+            }
+            
+            mouse = Mouse.x;
+            g2d.setColor(new Color(cooler,0,0));
+        }
+        else
+        {
+            g2d.setColor(new Color(cooler,0,0));
+        }
+        g2d.fillOval(100, 550, 30, 30);
+        Polygon fire1 = new Polygon();
+        fire1.addPoint(100,570);
+        fire1.addPoint(110,550);
+        fire1.addPoint(95,555);
+        g2d.fillPolygon(fire1);
+        Polygon fire2 = new Polygon();
+        fire2.addPoint(105,555);
+        fire2.addPoint(120,555);
+        fire2.addPoint(113,545);
+        g2d.fillPolygon(fire2);
+        Polygon fire3 = new Polygon();
+        fire3.addPoint(120,555);
+        fire3.addPoint(125,570);
+        fire3.addPoint(135,557);
+        g2d.fillPolygon(fire3);
+        g2d.setColor(house);
+        g2d.setStroke(new BasicStroke(10));
+        g2d.drawLine(100,600,130,570);
+        g2d.drawLine(130,600,100,570);
+    }
+    //Methods go HERE
+    //*************************************************************************updateEnemy
+    
+    
+    
+    
+}
